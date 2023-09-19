@@ -2,6 +2,8 @@ import './globals.css'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 
+import { Providers } from './GlobalRedux/provider'
+
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
@@ -16,7 +18,16 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
-    </html>
+    {/*
+      <head /> will contain the components returned by the nearest parent
+      head.tsx. Find out more at https://beta.nextjs.org/docs/api-reference/file-conventions/head
+    */}
+    <head />
+    <body>
+      <Providers>
+        {children}
+      </Providers>
+    </body>
+  </html>
   )
 }

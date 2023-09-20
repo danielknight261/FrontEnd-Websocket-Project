@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import type { RootState } from '../GlobalRedux/store'
 
@@ -8,7 +8,7 @@ import {
   setRandomNumber,
   setPreviousNumber,
   setNumberColor,
-} from '../GlobalRedux/Features/counter/randomNumberSlice'; // Import the actions from your randomNumberSlice
+} from '../GlobalRedux/Features/counter/randomNumberSlice';
 
 const RandomNumberGenerator = () => {
   const dispatch = useDispatch();
@@ -16,16 +16,16 @@ const RandomNumberGenerator = () => {
   const previousNumber = useSelector((state: RootState) => state.randomNumber.previousValue);
   const numberColor = useSelector((state: RootState) => state.randomNumber.color);
 
-  const socket = new WebSocket('ws://localhost:8080'); // WebSocket server URL
+  const socketRef = useRef<WebSocket | null>(null);
 
-  // Handle WebSocket messages
   useEffect(() => {
-    socket.addEventListener('message', (event) => {
-      const newNumber = event.data;
+    try {
+      socketRef.current = new WebSocket('ws://localhost:8080');
 
-      // Dispatch actions to update Redux state
-      dispatch(setRandomNumber(newNumber));
-     
+      socketRef.current.addEventListener('message', (event) => {
+        const newNumber = event.data;
+
+        dispatch(setRandomNumber(newNumber));
 
       // Compare the new number with the previous number and set the color accordingly
       if (previousNumber !== null) {
@@ -41,10 +41,23 @@ const RandomNumberGenerator = () => {
       dispatch(setPreviousNumber(newNumber));
     });
 
+    socketRef.current.addEventListener('error', (error) => {
+      console.error('WebSocket error:', error);
+    });
+
+    socketRef.current.addEventListener('close', () => {
+      console.log('WebSocket connection closed');
+    });
+
     return () => {
-      socket.close();
+      if (socketRef.current) {
+        socketRef.current.close();
+      }
     };
-  }, [dispatch, previousNumber, socket]);
+  } catch (error) {
+    console.error('WebSocket connection error:', error);
+  }
+}, [dispatch, previousNumber]);
 
   return (
     <div>

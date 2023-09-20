@@ -34,4 +34,17 @@ Backend /
 Frontend Client - Next 13 , tailwind, reudx, websocket
 MiddleWare setup 
 
-Hosting: Vercel -
+Hosting: Vercel - Frontend
+
+Heroku Backend - ?
+
+Notes: Fun task, little challenging getting Redux to work with Next 13, the documentation is very limited and the intergration of Redux into the latest version of Next is not yet updated as far as i was able to find. Strangley enough one of the bigger issues was something minor which was adding 'use client' at the top of the relevant pages in order to get the application to work. Something ive only seen once before when playing around next 13 in its experimental pahse.
+
+Redux state, held in randomNumberSlice.ts , provider.tsx and the store.tsx and then passed in the componeond called RandomNumberGenerator.tsx
+
+Colours matched as closely as possible using a Hex colour finder tool, only one that off id the red. 
+
+Added , a simple line of error handling to the websocket on the backend also. 
+
+
+

@@ -2,13 +2,13 @@
 
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import type { RootState } from './GlobalRedux/store'
+import type { RootState } from '../GlobalRedux/store'
 
 import {
   setRandomNumber,
   setPreviousNumber,
   setNumberColor,
-} from './GlobalRedux/Features/counter/randomNumberSlice'; // Import the actions from your randomNumberSlice
+} from '../GlobalRedux/Features/counter/randomNumberSlice'; // Import the actions from your randomNumberSlice
 
 const RandomNumberGenerator = () => {
   const dispatch = useDispatch();

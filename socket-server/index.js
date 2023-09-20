@@ -13,10 +13,13 @@ app.ws('/', (ws, req) => {
   console.log('Client connected to WebSocket');
 
   const sendRandomNumber = () => {
-    const randomNumber = Math.floor(Math.random() * (9999999 - 1000000 + 1)) + 1000000;
-    ws.send(randomNumber.toString()); // Send the random number as a string to the client
+    try {
+      const randomNumber = Math.floor(Math.random() * (9999999 - 1000000 + 1)) + 1000000;
+      ws.send(randomNumber.toString()); // Send the random number as a string to the client
+    } catch (error) {
+      console.error('Error sending WebSocket message:', error);
+    }
   };
-
   const intervalId = setInterval(sendRandomNumber, 100);
 
   ws.on('close', () => {

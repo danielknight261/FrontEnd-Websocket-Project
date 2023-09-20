@@ -42,7 +42,7 @@ const RandomNumberGenerator = () => {
     return () => {
       socket.close();
     };
-  }, [dispatch, previousNumber]);
+  }, [dispatch, previousNumber, socket]);
 
   return (
     <div>

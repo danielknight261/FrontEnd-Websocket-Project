@@ -3,6 +3,8 @@ import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 
 import { Providers } from './GlobalRedux/provider'
+import Title from './title'
+import RandomNumberGenerator from './RandomNumberGenerator'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -26,7 +28,9 @@ export default function RootLayout({
     <body>
       <Providers>
         {children}
+        <RandomNumberGenerator />
       </Providers>
+      
     </body>
   </html>
   )

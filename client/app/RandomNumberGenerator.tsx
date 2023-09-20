@@ -28,7 +28,7 @@ const RandomNumberGenerator = () => {
 
       if (previousNumber !== null) {
         if (parseFloat(newNumber) > parseFloat(previousNumber)) {
-          dispatch(setNumberColor('text-green-500'));
+          dispatch(setNumberColor('text-[#29bc29]'));
         } else if (parseFloat(newNumber) < parseFloat(previousNumber)) {
           dispatch(setNumberColor('text-red-500'));
         } else {
@@ -46,9 +46,10 @@ const RandomNumberGenerator = () => {
 
   return (
     <div>
-      {/* Display the random number received from the WebSocket */}
       {randomNumber && (
-        <div className={numberColor}>Random Number: {randomNumber}</div>
+        <div className="bg-[#3b3e47] px-6 p-2 rounded-sm">
+          <div className={numberColor}>{randomNumber}</div>
+        </div>
       )}
     </div>
   );

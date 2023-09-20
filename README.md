@@ -33,3 +33,5 @@ Steps: Install Depens
 Backend /
 Frontend Client - Next 13 , tailwind, reudx, websocket
 MiddleWare setup 
+
+Hosting: Vercel -

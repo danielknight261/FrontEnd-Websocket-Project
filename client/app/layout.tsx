@@ -2,7 +2,7 @@ import './globals.css';
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import { Providers } from './GlobalRedux/provider';
-import RandomNumberGenerator from './Componenets/RandomNumberGenerator';
+import RandomNumberGenerator from './Components/RandomNumberGenerator';
 
 const inter = Inter({ subsets: ['latin'] });
 

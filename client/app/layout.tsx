@@ -19,8 +19,8 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head />
+      {/* Set the background color and center content */}
       <body className="bg-[#1f1e25] flex flex-col items-center justify-center min-h-screen">
-        {/* Set the background color and center content */}
         <h1 className="text-2xl font-bold mb-4 text-white">Quadra Coin</h1>
         <Providers>
           {children}

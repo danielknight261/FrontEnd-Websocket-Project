@@ -1,4 +1,49 @@
+
 # Quadra Challenge
+
+## Deployment
+
+Backend Deployment:
+
+Install Dependencies:
+Open a terminal on the server.
+Navigate to the backend directory: cd socket-server
+Run npm install to install project dependencies.
+
+Start the backend server with 'node index'
+
+Frontend Deployment:
+Open a terminal on the server.
+Navigate to the frontend directory: cd client
+Run npm install to install project dependencies.
+
+Start the frontend with 'npm run dev'
+```
+
+
+## Tech Stack
+
+**Client:** React, Redux, TailwindCSS, Next 13
+
+**Server:** Node, Express , Websocket
+
+
+## Related
+
+A fun and challenging task few complications were integrating Redux with Next.js version 13. The documentation for this particular integration is quite limited, and it appears that the integration of Redux with the latest version of Next.js hasn't been thoroughly updated as of my research.
+
+The Redux state is managed within multiple files, primarily in randomNumberSlice.ts, provider.tsx, and store.tsx. This state is then passed down to components, notably in the component named RandomNumberGenerator.tsx.
+
+In terms of design, I made efforts to match colours as closely as possible. I utilised a Hex color finder tool to ensure consistency
+
+Additionally, I implemented a simple error handling mechanism in the WebSocket functionality on the backend.
+
+This project was an enjoyable challenge.
+
+## Next Step
+
+Hosting: Front and Backend using Vercel and perhaps Heroku
+
 
 ## Instructions
 Create a project in NextJS 13
@@ -23,28 +68,4 @@ Change the number color under the following conditions:
 * Redux Toolkit
 * Typescript
 * Redux middleware to integrate websocket
-
-## Run websocket server
-> npm i
-> 
-> node ./index.js 
-
-Steps: Install Depens
-Backend /
-Frontend Client - Next 13 , tailwind, reudx, websocket
-MiddleWare setup 
-
-Hosting: Vercel - Frontend
-
-Heroku Backend - ?
-
-Notes: Fun task, little challenging getting Redux to work with Next 13, the documentation is very limited and the intergration of Redux into the latest version of Next is not yet updated as far as i was able to find. Strangley enough one of the bigger issues was something minor which was adding 'use client' at the top of the relevant pages in order to get the application to work. Something ive only seen once before when playing around next 13 in its experimental pahse.
-
-Redux state, held in randomNumberSlice.ts , provider.tsx and the store.tsx and then passed in the componeond called RandomNumberGenerator.tsx
-
-Colours matched as closely as possible using a Hex colour finder tool, only one that off id the red. 
-
-Added , a simple line of error handling to the websocket on the backend also. 
-
-
 

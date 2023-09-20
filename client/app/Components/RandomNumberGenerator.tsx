@@ -25,7 +25,9 @@ const RandomNumberGenerator = () => {
 
       // Dispatch actions to update Redux state
       dispatch(setRandomNumber(newNumber));
+     
 
+      // Compare the new number with the previous number and set the color accordingly
       if (previousNumber !== null) {
         if (parseFloat(newNumber) > parseFloat(previousNumber)) {
           dispatch(setNumberColor('text-[#29bc29]'));

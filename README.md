@@ -42,7 +42,19 @@ This project was an enjoyable challenge.
 
 ## Next Step
 
-Hosting: Front and Backend using Vercel and perhaps Heroku
+Hosting: Frontend Vercel:  https://front-end-websocket-project.vercel.app/
+
+Backend not currently connected automatically but if you follow the deployment steps for the backend ONLY and make sure node server is running both hosted frontend and backend will running together
+
+Backend Deployment:
+
+Install Dependencies:
+Open a terminal on the server.
+Navigate to the backend directory: cd socket-server
+Run npm install to install project dependencies.
+
+## Next Steps
+Backend hosting
 
 
 ## Instructions
